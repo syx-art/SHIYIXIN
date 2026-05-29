@@ -31,19 +31,6 @@
         @media (max-width: 768px) { .viewer-controls button { width: 40px; height: 40px; font-size: 1.3rem; } .modal-gallery img { width: 90%; } }
         .fade-up { opacity: 0; transform: translateY(35px); transition: opacity 0.7s ease, transform 0.7s ease; }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-        /* 全部作品网格 */
-        .gallery-scroll { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
-        .gallery-scroll::-webkit-scrollbar { height: 4px; }
-        .gallery-item { flex: 0 0 70%; scroll-snap-align: start; border-radius: 20px; overflow: hidden; background: #1a1a1a; cursor: pointer; transition: transform 0.2s; }
-        .gallery-item:hover { transform: scale(1.02); }
-        @media (min-width: 640px) { .gallery-item { flex: 0 0 45%; } }
-        @media (min-width: 768px) { .gallery-item { flex: 0 0 30%; } }
-        .gallery-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; pointer-events: none; }
-        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .project-card { cursor: pointer; transition: transform 0.2s, border-color 0.2s; }
-        .project-card:active { transform: scale(0.98); }
-        .all-projects-modal-scroll { max-height: 80vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
     </style>
 </head>
 <body class="antialiased">
@@ -121,7 +108,7 @@
                         <button class="view-project-btn mt-2 text-sm border border-white/20 px-6 py-2.5 rounded-full hover:bg-white hover:text-black transition" data-project="residence">查看完整案例 →</button>
                     </div>
                     <div class="order-1 md:order-2 overflow-hidden rounded-3xl group cursor-pointer" data-project-img="residence">
-                        <img src="C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-2738-将生66cb323c-4597-4ea1-a29d-36fe394e38c5成一....webp" class="w-full h-[450px] md:h-[550px] object-cover project-img-hover transition duration-700" alt="原木住宅">
+                        <img src="WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-2738-将生66cb323c-4597-4ea1-a29d-36fe394e38c5成一....webp" class="w-full h-[450px] md:h-[550px] object-cover project-img-hover transition duration-700" alt="原木住宅">
                         <!-- 提示：请替换 src 内的图片链接 -->
                     </div>
                 </div>
@@ -129,7 +116,7 @@
                 <!-- 项目2: 可口可乐博物馆 · 云南 -->
                 <div class="grid md:grid-cols-2 gap-12 items-center fade-up">
                     <div class="order-2 md:order-1 overflow-hidden rounded-3xl group cursor-pointer" data-project-img="museum">
-                        <img src="C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-1244-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp" class="w-full h-[450px] md:h-[550px] object-cover project-img-hover transition duration-700" alt="博物馆">
+                        <img src="WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-1244-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp" class="w-full h-[450px] md:h-[550px] object-cover project-img-hover transition duration-700" alt="博物馆">
                     </div>
                     <div class="order-2 md:order-2 space-y-6">
                         <div class="inline-block border-l-2 border-white/40 pl-4">
@@ -162,14 +149,14 @@
                         <button class="view-project-btn mt-2 text-sm border border-white/20 px-6 py-2.5 rounded-full hover:bg-white hover:text-black transition" data-project="miao">查看完整案例 →</button>
                     </div>
                     <div class="order-1 md:order-2 overflow-hidden rounded-3xl group cursor-pointer" data-project-img="miao">
-                        <img src="C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-1111-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp" class="w-full h-[450px] md:h-[550px] object-cover project-img-hover transition duration-700" alt="苗韵展馆">
+                        <img src="WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-1111-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp" class="w-full h-[450px] md:h-[550px] object-cover project-img-hover transition duration-700" alt="苗韵展馆">
                     </div>
                 </div>
 
                 <!-- 项目4: 厦门办公楼 -->
                 <div class="grid md:grid-cols-2 gap-12 items-center fade-up">
                     <div class="order-2 md:order-1 overflow-hidden rounded-3xl group cursor-pointer" data-project-img="office">
-                        <img src="C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-1693-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp" class="w-full h-[450px] md:h-[550px] object-cover project-img-hover transition duration-700" alt="厦门办公楼">
+                        <img src="WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-1693-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp" class="w-full h-[450px] md:h-[550px] object-cover project-img-hover transition duration-700" alt="厦门办公楼">
                     </div>
                     <div class="order-2 md:order-2 space-y-6">
                         <div class="inline-block border-l-2 border-white/40 pl-4">
@@ -189,20 +176,8 @@
 
             <!-- 查看所有作品按钮 -->
             <div class="text-center mt-20">
-                <a href="#all-projects" class="inline-block border border-white/30 px-10 py-4 rounded-full text-base font-light tracking-wide hover:bg-white hover:text-black transition duration-300">查看所有作品 →</a>
+                <a href="all-projects.html" class="inline-block border border-white/30 px-10 py-4 rounded-full text-base font-light tracking-wide hover:bg-white hover:text-black transition duration-300">查看所有作品 →</a>
             </div>
-        </div>
-    </section>
-
-
-    <section id="all-projects" class="py-28 px-6 border-t border-white/10 bg-black">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-16 fade-up">
-                <p class="text-gray-500 text-xs uppercase tracking-[0.3em] mb-3">All Projects</p>
-                <h2 class="text-4xl md:text-6xl font-light">全部作品</h2>
-                <div class="w-12 h-px bg-white/20 mt-5"></div>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="allProjectsGrid"></div>
         </div>
     </section>
 
@@ -284,14 +259,6 @@
         </div>
     </div>
 
-
-    <div id="allProjectModal" class="fixed inset-0 z-[160] flex items-center justify-center invisible opacity-0 transition-all duration-300 bg-black/95 backdrop-blur-md p-3">
-        <div class="bg-black border border-white/20 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl">
-            <div class="flex justify-between items-center p-4 border-b border-white/10"><h3 class="text-lg font-light">项目详情</h3><button id="closeAllModalBtn" class="text-2xl hover:text-gray-400 leading-none">&times;</button></div>
-            <div class="all-projects-modal-scroll p-4" id="allModalContent"></div>
-        </div>
-    </div>
-
     <div id="fullImageViewer" class="image-viewer">
         <div class="viewer-container relative flex items-center justify-center w-full h-full"><img id="fullImg" class="viewer-img" src=""></div>
         <div class="viewer-close" id="viewerClose">&times;</div>
@@ -311,10 +278,10 @@
                 software: "3ds Max, VRay",
                 responsibility: "全屋建模与渲染",
                 images: [
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-5249-将生42c74d3b-e3bd-4984-9586-f36efb9082b3成一....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-6281-将生725ad8d6-1649-41b7-a9c8-badfe716c0c8成一....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-7224-将生6ebdfdd4-d413-4ff6-bc3d-45ee71246bf3成一....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-8084-将生客餐厨一体(图1)成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，....webp"
+                    "WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-5249-将生42c74d3b-e3bd-4984-9586-f36efb9082b3成一....webp",
+                    "WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-6281-将生725ad8d6-1649-41b7-a9c8-badfe716c0c8成一....webp",
+                    "WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-7224-将生6ebdfdd4-d413-4ff6-bc3d-45ee71246bf3成一....webp",
+                    "WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-8084-将生客餐厨一体(图1)成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，....webp"
                 ]
             },
             museum: {
@@ -326,14 +293,14 @@
                 software: "3ds Max, VRay, PS",
                 responsibility: "合作建模、灯光渲染",
                 images: [
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-1877-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-4145-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-4616-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-4895-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-6896-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-8347-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-9154-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-9661-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
+                    "WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-1877-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-4145-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-4616-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-4895-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-6896-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-8347-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-9154-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-9661-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
                 ]
             },
             miao: {
@@ -345,14 +312,14 @@
                 software: "3ds Max, VRay",
                 responsibility: "展馆效果图全案",
                 images: [
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-1676-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-3840-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-4022-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-5885-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-7480-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-9268-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-9331-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-9511-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
+                    "WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-1676-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-3840-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-4022-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-5885-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-7480-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-9268-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-9331-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-9511-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
                 ]
             },
             office: {
@@ -364,14 +331,14 @@
                 software: "3ds Max, VRay",
                 responsibility: "合作建模、渲染后期",
                 images: [
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-2686-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-3589-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-3875-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-4473-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-4634-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-5684-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-9352-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                    "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-9766-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
+                    "WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-2686-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-3589-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-3875-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-4473-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-4634-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-5684-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-9352-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
+                    "WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-9766-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
                 ]
             }
         };
@@ -473,302 +440,6 @@
             alert('✨ 表单已提交！我会在24小时内通过您留下的联系方式与您沟通。感谢您的信任。');
             form.reset();
         });
-
-        // ============ 全部作品数据 ============
-        const allProjects = [
-            {
-                id: "c1",
-                title: "书山广场改造",
-                type: "工装 / 城市公共空间",
-                shortDesc: "整体秉持现代极简与人文关怀的设计理念。通过流畅的线条与通透的布局，营造自由开放的城市公共客厅。",
-                fullDesc: "整体秉持现代极简与人文关怀的设计理念。通过引入流畅的线条与通透的空间布局，打破原有场地的封闭感，营造出自由开放的城市公共客厅。精选高品质石材与耐候材质，搭配立体绿植系统，实现商业活力与生态休闲的完美融合。",
-                concept: "现代极简 + 人文关怀，流畅线条与通透布局营造城市公共客厅。",
-                analysis: "立体绿植系统 + 耐候材质，动线串联商业活力与生态休闲区域。",
-                software: "3ds Max, VRay, Photoshop",
-                responsibility: "全案效果图制作",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/书山广场改造/jimeng-2026-05-29-1361-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/书山广场改造/jimeng-2026-05-29-3090-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/书山广场改造/jimeng-2026-05-29-4097-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/书山广场改造/jimeng-2026-05-29-5861-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/书山广场改造/jimeng-2026-05-29-7814-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/书山广场改造/jimeng-2026-05-29-8460-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/书山广场改造/jimeng-2026-05-29-9662-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/书山广场改造/jimeng-2026-05-29-9979-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
-            ]
-            },
-            {
-                id: "c2",
-                title: "咖啡厅",
-                type: "工装 / 餐饮空间",
-                shortDesc: "工业风与暖调自然主义融合，营造松弛慵懒氛围。",
-                fullDesc: "设计风格融合工业风与暖调自然主义。裸露的混凝土顶面与温润的原木家具形成质感对比，搭配藤编座椅与柔和暖光照明，营造出松弛慵懒的氛围。",
-                concept: "工业风 + 暖调自然主义",
-                analysis: "灵活分区满足商务社交与独处需求",
-                software: "3ds Max, VRay",
-                responsibility: "建模渲染全流程",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/咖啡厅/jimeng-2026-05-29-3034-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/咖啡厅/jimeng-2026-05-29-3441-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
-            ]
-            },
-            {
-                id: "c3",
-                title: "学校大门改造",
-                type: "工装 / 教育建筑",
-                shortDesc: "现代几何体块，庄重仪式感，打造校园文化名片。",
-                fullDesc: "设计紧扣庄重、智慧与开放的教育主题。采用简洁大气的现代几何体块，象征知识的殿堂与严谨的治学精神。入口广场结合绿植与地标性雕塑，强化仪式感和校园辨识度。",
-                concept: "现代几何体块 + 庄重仪式感",
-                analysis: "人车分流优化通行效率，绿植与雕塑强化校园文化",
-                software: "3ds Max, VRay, Photoshop",
-                responsibility: "全案效果图表现",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/学校大门改造/jimeng-2026-05-29-9779-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/学校大门改造/效果图.webp"
-            ]
-            },
-            {
-                id: "c4",
-                title: "户外亲子公园",
-                type: "工装 / 户外休闲",
-                shortDesc: "现代露营美学，房车+天幕营造微度假松弛氛围。",
-                fullDesc: "设计融合现代露营美学与自然景观，以房车和天幕为核心元素，营造自由松弛的微度假氛围。空间利用原木铺装、暖色串灯与烧烤设施构建休闲动线，结合户外影院区域提升互动体验。",
-                concept: "现代露营美学，房车+天幕营造微度假松弛氛围。",
-                analysis: "原木铺装 + 暖色串灯 + 户外影院，构建家庭互动休闲动线。",
-                software: "3ds Max, VRay",
-                responsibility: "场景建模与渲染",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/户外亲子公园/jimeng-2026-05-29-3595-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/户外亲子公园/jimeng-2026-05-29-3645-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/户外亲子公园/jimeng-2026-05-29-3984-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/户外亲子公园/jimeng-2026-05-29-5282-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/户外亲子公园/jimeng-2026-05-29-5867-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/户外亲子公园/jimeng-2026-05-29-9147-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
-            ]
-            },
-            {
-                id: "c5",
-                title: "景观公园",
-                type: "工装 / 城市景观",
-                shortDesc: "现代园林 + 极简线条，四季植被与几何铺装构建节奏感景观。",
-                fullDesc: "采用清新明快的现代园林风格，通过丰富的四季植被色彩与几何化的铺装拼花，构建节奏感强烈的景观轴线。空间以极简的线条元素与通透的木质廊架打破传统公园的沉闷，巧妙结合雕塑水景与现代休憩设施。",
-                concept: "现代园林 + 极简线条，四季植被与几何铺装构建节奏感景观。",
-                analysis: "木质廊架 + 雕塑水景打破沉闷，生态活力与建筑美感兼具。",
-                software: "3ds Max, VRay, Photoshop",
-                responsibility: "景观效果图全流程",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/景观公园/jimeng-2026-05-29-2123-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/景观公园/jimeng-2026-05-29-7024-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/景观公园/jimeng-2026-05-29-9618-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
-            ]
-            },
-            {
-                id: "c6",
-                title: "苗韵展馆",
-                type: "工装 / 文化展馆",
-                shortDesc: "原石+金属碰撞叙事，暗调光源凸显苗族文化厚重与神秘。",
-                fullDesc: "展馆设计深植于苗族文化底蕴，运用粗犷原石堆叠与现代金属材质进行空间叙事。内部展示区采用沉浸式暗调光源设计，辅以极具民族特征的图腾纹理浮雕墙，凸显文化的厚重与神秘感。",
-                concept: "原石 + 金属碰撞叙事，暗调光源凸显苗族文化厚重与神秘。",
-                analysis: "沉浸式展示动线，图腾浮雕墙与光影引导串联民族文明脉络。",
-                software: "3ds Max, VRay",
-                responsibility: "展馆效果图全案",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-1111-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-1676-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-3840-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-4022-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-5885-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-7480-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-9268-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-9331-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/商业空间设计/效果图精选/苗韵展馆/jimeng-2026-05-29-9511-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
-            ]
-            },
-            {
-                id: "l1",
-                title: "云南可口可乐博物馆",
-                type: "工装 / 文化博物馆",
-                shortDesc: "现代工业风融合生态理念，沉浸式观展动线。",
-                fullDesc: "现代工业风融合生态理念。外观采用简洁几何体量，室内以灰白为主色调，搭配绿色植物与木质元素，营造自然与科技交织的空间氛围。材质上大量运用混凝土肌理板、金属框架及LED灯光系统，空间布局开放通透，流线型动线引导访客沉浸式观展。",
-                concept: "现代工业风 + 生态理念，灰白主调融合绿植与木质元素。",
-                analysis: "沉浸式观展动线，LED灯光与混凝土肌理板强化品牌叙事。",
-                software: "3ds Max, VRay, Photoshop",
-                responsibility: "合作建模、灯光渲染",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-1244-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-1877-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-4145-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-4616-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-4895-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-6896-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-8347-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-9154-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/云南可口可乐博物馆/jimeng-2026-05-29-9661-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
-            ]
-            },
-            {
-                id: "l2",
-                title: "厦门可口可乐办公楼",
-                type: "工装 / 品牌办公",
-                shortDesc: "生态现代主义，玻璃幕墙+品牌红点缀，开放协作办公。",
-                fullDesc: "以“生态现代主义”为核心理念，融合可口可乐品牌红与太古沉稳色调。外观采用通透玻璃幕墙与立体绿植墙，彰显自然与可持续发展理念；室内以开放协作区与静谧独立舱组合，动线流畅、功能复合。",
-                concept: "生态现代主义，玻璃幕墙 + 品牌红点缀，开放协作办公。",
-                analysis: "开放区+独立舱组合，品牌色点缀中性灰基底，动线流畅。",
-                software: "3ds Max, VRay",
-                responsibility: "合作建模、渲染后期",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-1693-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-2686-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-3589-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-3875-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-4473-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-4634-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-5684-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-9352-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/厦门可口可乐公司办公楼设计/jimeng-2026-05-29-9766-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
-            ]
-            },
-            {
-                id: "l3",
-                title: "湛江可口可乐饭堂翻新",
-                type: "工装 / 餐饮改造",
-                shortDesc: "红白主色调+原木金属，品牌IP融合年轻化美学。",
-                fullDesc: "现代活力餐饮空间设计。以可口可乐经典红白为主色调，搭配原木与哑光金属材质，营造清爽时尚的用餐氛围。墙面以艺术化手法植入品牌元素，户外区设置巨型瓶身装置与霓虹灯标，强化视觉记忆点。",
-                concept: "红白主色调 + 原木金属，品牌IP融合年轻化美学。",
-                analysis: "功能分区优化，户外巨型瓶身装置+霓虹灯标强化视觉记忆。",
-                software: "3ds Max, VRay, Photoshop",
-                responsibility: "独立全案建模、渲染、后期",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/湛江可口可乐饭堂翻新改造/jimeng-2026-05-29-6933-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/湛江可口可乐饭堂翻新改造/jimeng-2026-05-29-7186-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/湛江可口可乐饭堂翻新改造/jimeng-2026-05-29-7336-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/湛江可口可乐饭堂翻新改造/jimeng-2026-05-29-7471-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/湛江可口可乐饭堂翻新改造/jimeng-2026-05-29-7680-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/湛江可口可乐饭堂翻新改造/jimeng-2026-05-29-7841-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/湛江可口可乐饭堂翻新改造/jimeng-2026-05-29-8410-将生成一张照片级真实的室外设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/项目落地/效果图精选/湛江可口可乐饭堂翻新改造/jimeng-2026-05-29-9758-将生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持在完全....webp"
-            ]
-            },
-            {
-                id: "r1",
-                title: "原木静谧住宅",
-                type: "家装 / 原木自然",
-                shortDesc: "日式禅意+现代简约，原木格栅与暖光营造返璞归真氛围。",
-                fullDesc: "以自然原木为核心元素，融合日式禅意与现代简约风格。空间采用大量木质格栅、肌理感墙面和原木家具，营造温暖、宁静的居住氛围。暖色调灯光与原木材质相得益彰，形成柔和的光影层次。",
-                concept: "日式禅意 + 现代简约，原木格栅与暖光营造返璞归真氛围。",
-                analysis: "LDK一体化布局，深色微水泥与横梁结构增强空间层次。",
-                software: "3ds Max, VRay",
-                responsibility: "全屋建模与渲染",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-2738-将生66cb323c-4597-4ea1-a29d-36fe394e38c5成一....webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-5249-将生42c74d3b-e3bd-4984-9586-f36efb9082b3成一....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-6281-将生725ad8d6-1649-41b7-a9c8-badfe716c0c8成一....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-7224-将生6ebdfdd4-d413-4ff6-bc3d-45ee71246bf3成一....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/原木风家居设计/jimeng-2026-05-29-8084-将生客餐厨一体(图1)成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，....webp"
-            ]
-            },
-            {
-                id: "r2",
-                title: "宋氏美学家居设计",
-                type: "家装 / 现代轻奢",
-                shortDesc: "白色高光+原木饰面+线性灯带，精致轻奢质感。",
-                fullDesc: "采用现代轻奢风格，注重精致细节与高级感营造。空间以白色高光柜体与原木饰面为主调，搭配竖向木饰面、灰色调软包等材质，形成简洁而富有层次感的视觉效果。嵌入式照明与线性灯带巧妙结合，提供充足且柔和的光线。",
-                concept: "白色高光 + 原木饰面 + 线性灯带，精致轻奢质感。",
-                analysis: "功能美学平衡，嵌入式照明 + 玻璃衣柜提升现代居住体验。",
-                software: "3ds Max, VRay",
-                responsibility: "全案渲染",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/宋氏美学家居设计/中式屏风.webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/宋氏美学家居设计/人物场景.webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/宋氏美学家居设计/光影运用.webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/宋氏美学家居设计/客餐厅一体.webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/宋氏美学家居设计/微距特写.webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/宋氏美学家居设计/特写镜头.webp"
-            ]
-            },
-            {
-                id: "r3",
-                title: "民宿设计",
-                type: "家装 / 民宿旅居",
-                shortDesc: "日式简约+现代风格，深色木纹与暖光营造宁静旅居。",
-                fullDesc: "融合了日式简约与现代风格，营造宁静舒适的旅居体验。开放式起居空间以深色木纹、白色织物为主材，搭配暖色调灯光，形成温馨的视觉感受。空间注重自然光线的引入，通过开阔的阳台视野和浅木色家具，将室内外景观有机连接。",
-                concept: "日式简约 + 现代风格，深色木纹与暖光营造宁静旅居。",
-                analysis: "开放起居 + 开阔阳台，自然光线串联室内外景观。",
-                software: "3ds Max, VRay",
-                responsibility: "建模灯光渲染",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/民宿设计/jimeng-2026-05-29-1703-将a42c9369-a9d8-4324-a096-a7b21cb189e0生成一....webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/民宿设计/jimeng-2026-05-29-3935-将光影迷人生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保....webp"
-            ]
-            },
-            {
-                id: "r4",
-                title: "简约家居设计",
-                type: "家装 / 现代极简",
-                shortDesc: "少即是多，白色高光+原木饰面+客餐厨一体。",
-                fullDesc: "采用现代极简风格，追求空间的高效利用与视觉的纯净感。客餐厨一体化布局通过白色高光柜体与原木饰面的搭配，实现整洁、流畅的空间动线。嵌入式照明提供充足且均匀的光线，营造明亮通透的氛围。",
-                concept: "少即是多，白色高光 + 原木饰面 + 客餐厨一体。",
-                analysis: "高效动线 + 嵌入式均匀照明，极简线条营造明亮通透感。",
-                software: "3ds Max, VRay",
-                responsibility: "全屋效果图",
-                mainImage: "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/简约家居设计/jimeng-2026-05-29-1429-将！图片1生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保....webp",
-                galleryImages: [
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/简约家居设计/jimeng-2026-05-29-4857-将图片1生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持....webp",
-                "C:/Users/Administrator/Desktop/新建文件夹 (2)/WebP/家居设计/效果图精选/简约家居设计/jimeng-2026-05-29-7087-将图片1生成一张照片级真实的室内设计渲染图，构图与相机角度完全不变，所有家具保持....webp"
-            ]
-            }
-        ];
-
-        // ============ 渲染全部作品卡片 ============
-        function renderAllProjects() {
-            const container = document.getElementById('allProjectsGrid');
-            if (!container) return;
-            container.innerHTML = '';
-            allProjects.forEach(proj => {
-                const card = document.createElement('div');
-                card.className = 'project-card group bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-white/30 transition duration-300 fade-up';
-                card.innerHTML = `<img src="${proj.mainImage}" class="w-full h-52 object-cover transition duration-500" loading="lazy"><div class="p-4"><p class="text-gray-400 text-[11px] uppercase tracking-wider">${proj.type}</p><h3 class="text-lg font-light mt-1">${proj.title}</h3><p class="text-gray-400 text-xs mt-2 line-clamp-2">${proj.shortDesc}</p><div class="mt-3 text-xs border border-white/30 px-3 py-1.5 rounded-full inline-block hover:bg-white hover:text-black transition">查看详情</div></div>`;
-                card.onclick = () => openAllProjectModal(proj);
-                container.appendChild(card);
-            });
-        }
-
-        // ============ 打开全部作品模态框 ============
-        function openAllProjectModal(project) {
-            const modal = document.getElementById('allProjectModal');
-            const modalContent = document.getElementById('allModalContent');
-            const galleryHtml = project.galleryImages && project.galleryImages.length ? 
-                `<div class="mb-5"><h4 class="text-white/70 text-xs uppercase tracking-wide mb-2">项目图集 (点击图片放大查看)</h4><div class="gallery-scroll">${project.galleryImages.map((img, i) => `<div class="gallery-item" onclick="openAllViewer('${img}', ${i}, project.galleryImages)"><img src="${img}" class="gallery-img" loading="lazy" alt="项目图"></div>`).join('')}</div><p class="text-gray-500 text-[10px] mt-2 text-center">&larr; 滑动浏览 &rarr; 点击图片可放大缩放</p></div>` : '';
-            modalContent.innerHTML = `<div class="grid md:grid-cols-5 gap-5"><div class="md:col-span-3"><img src="${project.mainImage}" class="w-full h-56 object-cover rounded-xl mb-3"><h2 class="text-xl font-light mb-1">${project.title}</h2><p class="text-gray-400 text-xs uppercase tracking-wider mb-3">${project.type}</p><div class="text-gray-300 space-y-3 text-xs md:text-sm"><p><strong class="text-white">◈ 完整描述</strong><br>${project.fullDesc}</p><p><strong class="text-white">◈ 设计概念</strong><br>${project.concept}</p><p><strong class="text-white">◈ 空间分析</strong><br>${project.analysis}</p></div></div><div class="md:col-span-2 space-y-4 bg-white/5 p-3 rounded-xl"><div><h4 class="text-white text-sm font-semibold">软件工具</h4><p class="text-gray-300 text-xs">${project.software}</p></div><div><h4 class="text-white text-sm font-semibold">负责内容</h4><p class="text-gray-300 text-xs">${project.responsibility}</p></div><div class="border-t border-white/10 pt-2"><p class="text-gray-400 text-[11px] italic">高效率工作流：标准化材质/灯光预设，快速输出高品质效果图。</p></div></div></div>${galleryHtml}`;
-            modal.classList.remove('invisible', 'opacity-0');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeAllModal() {
-            const modal = document.getElementById('allProjectModal');
-            modal.classList.add('invisible', 'opacity-0');
-            document.body.style.overflow = '';
-        }
-
-        // ============ 全部作品图片查看器 ============
-        let allViewerImgs = [];
-        let allViewerIdx = 0;
-        window.openAllViewer = function(src, idx, galleryArr) {
-            if (!src) return;
-            allViewerImgs = galleryArr || [];
-            allViewerIdx = idx || 0;
-            openFullViewerWithGallery(allViewerImgs, src);
-        };
-
-        document.getElementById('closeAllModalBtn').addEventListener('click', closeAllModal);
-        document.getElementById('allProjectModal').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('allProjectModal')) closeAllModal();
-        });
-
-        // ============ 初始化全部作品渲染 ============
-        renderAllProjects();
-
-
         const fadeElements = document.querySelectorAll('.fade-up');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); else entry.target.classList.remove('visible'); });
