@@ -222,10 +222,7 @@
                 <div class="w-12 h-px bg-white/30 mx-auto mt-5"></div>
                 <p class="text-gray-300 max-w-lg mx-auto mt-6 text-sm">填写以下信息，我会在24小时内与你沟通具体需求与报价。</p>
             </div>
-            <form id="contactForm" action="https://formsubmit.co/2149314571@qq.com" method="POST" class="max-w-2xl mx-auto space-y-6 fade-up">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://syx-art.github.io/SHIYIXIN/?sent=true">
+            <form id="contactForm" class="max-w-2xl mx-auto space-y-6 fade-up">
                 <div class="grid md:grid-cols-2 gap-5">
                     <input type="text" name="name" placeholder="你的姓名 / 公司" required class="w-full bg-black/60 border border-white/15 rounded-xl px-5 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-white/40 transition">
                     <input type="text" name="phone" placeholder="微信 / 手机号" required class="w-full bg-black/60 border border-white/15 rounded-xl px-5 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-white/40 transition">
@@ -437,24 +434,29 @@
             document.getElementById('projectModal').classList.add('invisible', 'opacity-0');
             document.body.style.overflow = '';
         };
-        // 检测表单是否已发送（通过URL参数）
-        if (window.location.search.includes('sent=true')) {
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-                setTimeout(() => {
-                    alert('表单已提交！我会在24小时内通过您留下的联系方式与您沟通。感谢您的信任。');
-                    // 清除URL参数
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                }, 500);
-            }
-        }
-
         const form = document.getElementById('contactForm');
-        form.addEventListener('submit', (e) => {
-            // 允许表单正常提交到 FormSubmit
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
-            if (btn) { btn.textContent = '正在提交...'; btn.disabled = true; }
+            btn.textContent = '正在提交...';
+            btn.disabled = true;
+            try {
+                const formData = new FormData(form);
+                const response = await fetch('https://formsubmit.co/ajax/2149314571@qq.com', {
+                    method: 'POST',
+                    body: formData
+                });
+                if (response.ok) {
+                    alert('表单已提交！我会在24小时内通过您留下的联系方式与您沟通。感谢您的信任。');
+                    form.reset();
+                } else {
+                    alert('提交失败，请稍后重试或直接发送邮件至 2149314571@qq.com');
+                }
+            } catch (err) {
+                alert('网络错误，请稍后重试或直接发送邮件至 2149314571@qq.com');
+            }
+            btn.textContent = '提交合作意向 →';
+            btn.disabled = false;
         });
         const fadeElements = document.querySelectorAll('.fade-up');
         const observer = new IntersectionObserver((entries) => {
