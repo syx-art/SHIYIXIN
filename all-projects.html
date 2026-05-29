@@ -352,11 +352,16 @@
             const modal = document.getElementById('projectModal');
             const modalContent = document.getElementById('modalContent');
             const galleryHtml = project.galleryImages && project.galleryImages.length ? 
-                `<div class="mb-5"><h4 class="text-white/70 text-xs uppercase tracking-wide mb-2">项目图集 (点击图片放大查看)</h4><div class="gallery-scroll">${project.galleryImages.map((img, i) => `<div class="gallery-item" onclick="openFullViewerWithGallery(window.currentGallery, '${img}')"><img src="${img}" class="gallery-img" loading="lazy" alt="项目图"></div>`).join('')}</div><p class="text-gray-500 text-[10px] mt-2 text-center">← 滑动浏览 → 点击图片可放大缩放</p></div>` : '';
+                `<div class="mb-5"><h4 class="text-white/70 text-xs uppercase tracking-wide mb-2">项目图集 (点击图片放大查看)</h4><div class="gallery-scroll">${project.galleryImages.map((img) => `<div class="gallery-item" data-src="${img}"><img src="${img}" class="gallery-img" loading="lazy" alt="项目图"></div>`).join('')}</div><p class="text-gray-500 text-[10px] mt-2 text-center">← 滑动浏览 → 点击图片可放大缩放</p></div>` : '';
             modalContent.innerHTML = `<div class="grid md:grid-cols-5 gap-5"><div class="md:col-span-3"><img src="${project.mainImage}" class="w-full h-56 object-cover rounded-xl mb-3"><h2 class="text-xl font-light mb-1">${project.title}</h2><p class="text-gray-400 text-xs uppercase tracking-wider mb-3">${project.type}</p><div class="text-gray-300 space-y-3 text-xs md:text-sm"><p><strong class="text-white">◈ 完整描述</strong><br>${project.fullDesc}</p><p><strong class="text-white">◈ 设计概念</strong><br>${project.concept}</p><p><strong class="text-white">◈ 空间分析</strong><br>${project.analysis}</p></div></div><div class="md:col-span-2 space-y-4 bg-white/5 p-3 rounded-xl"><div><h4 class="text-white text-sm font-semibold">🛠️ 软件工具</h4><p class="text-gray-300 text-xs">${project.software}</p></div><div><h4 class="text-white text-sm font-semibold">📌 负责内容</h4><p class="text-gray-300 text-xs">${project.responsibility}</p></div><div class="border-t border-white/10 pt-2"><p class="text-gray-400 text-[11px] italic">⚡ 高效率工作流：标准化材质/灯光预设，快速输出高品质效果图。</p></div></div></div>${galleryHtml}`;
             modal.classList.remove('invisible', 'opacity-0');
             document.body.style.overflow = 'hidden';
-            window.currentGallery = project.galleryImages;
+            modalContent.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const src = item.getAttribute('data-src');
+                    if (src) openFullViewerWithGallery(project.galleryImages, src);
+                });
+            });
         }
 
         function closeModal() {
