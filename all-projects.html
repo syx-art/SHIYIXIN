@@ -35,7 +35,7 @@
         .viewer-controls { position: absolute; bottom: 2rem; left: 0; right: 0; display: flex; justify-content: center; gap: 2rem; z-index: 2002; }
         .viewer-controls button { background: rgba(20,20,20,0.8); border: none; color: white; font-size: 1.8rem; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; }
         .viewer-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 2rem; cursor: pointer; z-index: 2002; background: rgba(0,0,0,0.5); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        @media (max-width: 768px) { .viewer-controls button { width: 40px; height: 40px; font-size: 1.3rem; } .gallery-item { flex: 0 0 90%; } }
+        @media (max-width: 768px) { .viewer-controls button { width: 52px; height: 52px; font-size: 1.6rem; } .gallery-item { flex: 0 0 90%; } .viewer-controls { gap: 3rem; bottom: 3rem; } }
 
         .viewer-img { transition: transform 0.1s ease; cursor: grab; }
         .viewer-controls button { transition: 0.2s; }
@@ -83,7 +83,7 @@
         <div class="viewer-container relative flex items-center justify-center w-full h-full"><img id="fullImg" class="viewer-img" src=""></div>
         <div class="viewer-close" id="viewerClose">&times;</div>
         <div class="viewer-controls"><button id="viewerPrev"><i class="fa-solid fa-chevron-left"></i></button><button id="viewerNext"><i class="fa-solid fa-chevron-right"></i></button></div>
-        <div class="absolute bottom-4 left-0 right-0 text-center text-gray-400 text-xs">鼠标滚轮缩放 | 拖拽移动 | 左右切换</div>
+        <div class="hidden md:block absolute bottom-4 left-0 right-0 text-center text-gray-400 text-xs pointer-events-none">鼠标滚轮缩放 · 拖拽移动 · 左右切换 · Esc 退出</div><div class="md:hidden absolute bottom-20 left-0 right-0 text-center text-gray-400 text-xs pointer-events-none">双指缩放 · 左右滑动切换</div>
     </div>
 
     <script>
@@ -386,7 +386,10 @@
         let scale = 1, translateX = 0, translateY = 0, isDraggingZoom = false, startX = 0, startY = 0;
         function setupDragZoom() {
             const img = fullImg;
+            const viewerEl = fullViewer;
             const applyTransform = () => { img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`; };
+
+            // === Desktop: Mouse Wheel ===
             function onWheel(e) {
                 e.preventDefault();
                 const delta = e.deltaY > 0 ? 0.9 : 1.1;
@@ -401,19 +404,57 @@
                 translateX -= deltaX; translateY -= deltaY;
                 applyTransform();
             }
+
+            // === Desktop: Mouse Drag ===
             function onMouseDown(e) { isDraggingZoom = true; startX = e.clientX - translateX; startY = e.clientY - translateY; img.style.cursor = 'grabbing'; e.preventDefault(); }
             function onMouseMove(e) { if (!isDraggingZoom) return; translateX = e.clientX - startX; translateY = e.clientY - startY; applyTransform(); }
             function onMouseUp() { isDraggingZoom = false; img.style.cursor = 'grab'; }
+
+            // === Mobile: Touch ===
+            let pinchStartDist = 0, pinchStartScale = 1, panStartX = 0, panStartY = 0;
+            let swipeStartX = 0, swipeStartY = 0, isSwiping = false;
+            function getTouchDist(t1, t2) { return Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY); }
+            function onTouchStart(e) {
+                if (e.touches.length === 2) { pinchStartDist = getTouchDist(e.touches[0], e.touches[1]); pinchStartScale = scale; isSwiping = false; }
+                else if (e.touches.length === 1) {
+                    if (scale > 1) { panStartX = e.touches[0].clientX - translateX; panStartY = e.touches[0].clientY - translateY; isSwiping = false; }
+                    else { swipeStartX = e.touches[0].clientX; swipeStartY = e.touches[0].clientY; isSwiping = true; }
+                }
+            }
+            function onTouchMove(e) {
+                if (e.touches.length === 2) { e.preventDefault(); const dist = getTouchDist(e.touches[0], e.touches[1]); scale = Math.min(4, Math.max(0.5, pinchStartScale * (dist / pinchStartDist))); applyTransform(); }
+                else if (e.touches.length === 1 && scale > 1) { translateX = e.touches[0].clientX - panStartX; translateY = e.touches[0].clientY - panStartY; applyTransform(); e.preventDefault(); }
+            }
+            function onTouchEnd(e) {
+                if (isSwiping && scale === 1 && e.changedTouches.length) {
+                    const dx = e.changedTouches[0].clientX - swipeStartX, dy = e.changedTouches[0].clientY - swipeStartY;
+                    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) { if (dx > 0) prevFullImage(); else nextFullImage(); }
+                }
+                if (e.touches.length === 0) isSwiping = false;
+            }
+
+            // === ESC Key ===
+            function onKeyDown(e) { if (e.key === 'Escape') closeImageViewer(); }
+
             img.addEventListener('wheel', onWheel, { passive: false });
             img.addEventListener('mousedown', onMouseDown);
             window.addEventListener('mousemove', onMouseMove);
             window.addEventListener('mouseup', onMouseUp);
+            window.addEventListener('keydown', onKeyDown);
             img.style.cursor = 'grab';
+            viewerEl.addEventListener('touchstart', onTouchStart, { passive: false });
+            viewerEl.addEventListener('touchmove', onTouchMove, { passive: false });
+            viewerEl.addEventListener('touchend', onTouchEnd);
+
             window.cleanupZoom = () => {
                 img.removeEventListener('wheel', onWheel);
                 img.removeEventListener('mousedown', onMouseDown);
                 window.removeEventListener('mousemove', onMouseMove);
                 window.removeEventListener('mouseup', onMouseUp);
+                window.removeEventListener('keydown', onKeyDown);
+                viewerEl.removeEventListener('touchstart', onTouchStart);
+                viewerEl.removeEventListener('touchmove', onTouchMove);
+                viewerEl.removeEventListener('touchend', onTouchEnd);
             };
         }
         function closeImageViewer() {
