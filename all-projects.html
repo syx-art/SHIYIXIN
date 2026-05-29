@@ -36,6 +36,10 @@
         .viewer-controls button { background: rgba(20,20,20,0.8); border: none; color: white; font-size: 1.8rem; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; }
         .viewer-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 2rem; cursor: pointer; z-index: 2002; background: rgba(0,0,0,0.5); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         @media (max-width: 768px) { .viewer-controls button { width: 40px; height: 40px; font-size: 1.3rem; } .gallery-item { flex: 0 0 90%; } }
+
+        .viewer-img { transition: transform 0.1s ease; cursor: grab; }
+        .viewer-controls button { transition: 0.2s; }
+        .viewer-controls button:hover { background: white; color: black; transform: scale(1.05); }
     </style>
 </head>
 <body class="bg-black text-white font-[Inter]">
@@ -348,7 +352,7 @@
             const modal = document.getElementById('projectModal');
             const modalContent = document.getElementById('modalContent');
             const galleryHtml = project.galleryImages && project.galleryImages.length ? 
-                `<div class="mb-5"><h4 class="text-white/70 text-xs uppercase tracking-wide mb-2">项目图集 (点击图片放大查看)</h4><div class="gallery-scroll">${project.galleryImages.map((img, i) => `<div class="gallery-item" onclick="openImageViewer('${img}', ${i}, project.galleryImages)"><img src="${img}" class="gallery-img" loading="lazy" alt="项目图"></div>`).join('')}</div><p class="text-gray-500 text-[10px] mt-2 text-center">← 滑动浏览 → 点击图片可放大缩放</p></div>` : '';
+                `<div class="mb-5"><h4 class="text-white/70 text-xs uppercase tracking-wide mb-2">项目图集 (点击图片放大查看)</h4><div class="gallery-scroll">${project.galleryImages.map((img, i) => `<div class="gallery-item" onclick="openFullViewerWithGallery(project.galleryImages, '${img}')"><img src="${img}" class="gallery-img" loading="lazy" alt="项目图"></div>`).join('')}</div><p class="text-gray-500 text-[10px] mt-2 text-center">← 滑动浏览 → 点击图片可放大缩放</p></div>` : '';
             modalContent.innerHTML = `<div class="grid md:grid-cols-5 gap-5"><div class="md:col-span-3"><img src="${project.mainImage}" class="w-full h-56 object-cover rounded-xl mb-3"><h2 class="text-xl font-light mb-1">${project.title}</h2><p class="text-gray-400 text-xs uppercase tracking-wider mb-3">${project.type}</p><div class="text-gray-300 space-y-3 text-xs md:text-sm"><p><strong class="text-white">◈ 完整描述</strong><br>${project.fullDesc}</p><p><strong class="text-white">◈ 设计概念</strong><br>${project.concept}</p><p><strong class="text-white">◈ 空间分析</strong><br>${project.analysis}</p></div></div><div class="md:col-span-2 space-y-4 bg-white/5 p-3 rounded-xl"><div><h4 class="text-white text-sm font-semibold">🛠️ 软件工具</h4><p class="text-gray-300 text-xs">${project.software}</p></div><div><h4 class="text-white text-sm font-semibold">📌 负责内容</h4><p class="text-gray-300 text-xs">${project.responsibility}</p></div><div class="border-t border-white/10 pt-2"><p class="text-gray-400 text-[11px] italic">⚡ 高效率工作流：标准化材质/灯光预设，快速输出高品质效果图。</p></div></div></div>${galleryHtml}`;
             modal.classList.remove('invisible', 'opacity-0');
             document.body.style.overflow = 'hidden';
@@ -361,39 +365,66 @@
             document.body.style.overflow = '';
         }
 
-        // 全屏图片查看器（与主页逻辑一致，简单版）
-        let currentGalleryImgs = [];
-        let currentImgIndex = 0;
-        const viewer = document.getElementById('imageViewer');
-        const viewerImg = document.getElementById('fullImg');
-        window.openImageViewer = function(src, idx, galleryArr) {
-            if (!src) return;
-            currentGalleryImgs = galleryArr || [];
-            currentImgIndex = idx || 0;
-            viewerImg.src = src;
-            viewer.classList.add('active');
+        // 全屏图片查看器（完整版：缩放+拖拽+左右切换）
+        let currentGalleryImages = [], currentGalleryIndex = 0;
+        const fullViewer = document.getElementById('imageViewer');
+        const fullImg = document.getElementById('fullImg');
+        window.openFullViewerWithGallery = function(images, startSrc) {
+            currentGalleryImages = images;
+            currentGalleryIndex = images.findIndex(i => i === startSrc);
+            if (currentGalleryIndex === -1) currentGalleryIndex = 0;
+            fullImg.src = currentGalleryImages[currentGalleryIndex];
+            fullViewer.classList.add('active');
             document.body.style.overflow = 'hidden';
+            setupDragZoom();
         };
+        let scale = 1, translateX = 0, translateY = 0, isDraggingZoom = false, startX = 0, startY = 0;
+        function setupDragZoom() {
+            const img = fullImg;
+            const applyTransform = () => { img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`; };
+            function onWheel(e) {
+                e.preventDefault();
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = scale * delta;
+                if (newScale > 4 || newScale < 0.5) return;
+                const rect = img.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left, mouseY = e.clientY - rect.top;
+                const originX = mouseX / rect.width, originY = mouseY / rect.height;
+                scale = newScale;
+                const deltaX = (originX - 0.5) * rect.width * (1 - 1/delta);
+                const deltaY = (originY - 0.5) * rect.height * (1 - 1/delta);
+                translateX -= deltaX; translateY -= deltaY;
+                applyTransform();
+            }
+            function onMouseDown(e) { isDraggingZoom = true; startX = e.clientX - translateX; startY = e.clientY - translateY; img.style.cursor = 'grabbing'; e.preventDefault(); }
+            function onMouseMove(e) { if (!isDraggingZoom) return; translateX = e.clientX - startX; translateY = e.clientY - startY; applyTransform(); }
+            function onMouseUp() { isDraggingZoom = false; img.style.cursor = 'grab'; }
+            img.addEventListener('wheel', onWheel, { passive: false });
+            img.addEventListener('mousedown', onMouseDown);
+            window.addEventListener('mousemove', onMouseMove);
+            window.addEventListener('mouseup', onMouseUp);
+            img.style.cursor = 'grab';
+            window.cleanupZoom = () => {
+                img.removeEventListener('wheel', onWheel);
+                img.removeEventListener('mousedown', onMouseDown);
+                window.removeEventListener('mousemove', onMouseMove);
+                window.removeEventListener('mouseup', onMouseUp);
+            };
+        }
         function closeImageViewer() {
-            viewer.classList.remove('active');
+            fullViewer.classList.remove('active');
             document.body.style.overflow = '';
+            if (window.cleanupZoom) window.cleanupZoom();
+            scale = 1; translateX = 0; translateY = 0;
+            fullImg.style.transform = '';
         }
-        function nextImage() {
-            if (currentGalleryImgs.length && currentImgIndex < currentGalleryImgs.length - 1) {
-                currentImgIndex++;
-                viewerImg.src = currentGalleryImgs[currentImgIndex];
-            }
-        }
-        function prevImage() {
-            if (currentGalleryImgs.length && currentImgIndex > 0) {
-                currentImgIndex--;
-                viewerImg.src = currentGalleryImgs[currentImgIndex];
-            }
-        }
-        document.getElementById('viewerPrev').onclick = prevImage;
-        document.getElementById('viewerNext').onclick = nextImage;
+        function nextFullImage() { if (currentGalleryImages.length) { currentGalleryIndex = (currentGalleryIndex + 1) % currentGalleryImages.length; fullImg.src = currentGalleryImages[currentGalleryIndex]; resetZoom(); } }
+        function prevFullImage() { if (currentGalleryImages.length) { currentGalleryIndex = (currentGalleryIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length; fullImg.src = currentGalleryImages[currentGalleryIndex]; resetZoom(); } }
+        function resetZoom() { scale = 1; translateX = 0; translateY = 0; fullImg.style.transform = 'translate(0px, 0px) scale(1)'; }
+        document.getElementById('viewerPrev').onclick = () => nextFullImage();
+        document.getElementById('viewerNext').onclick = () => prevFullImage();
         document.getElementById('viewerClose').onclick = closeImageViewer;
-        viewer.onclick = (e) => { if (e.target === viewer) closeImageViewer(); };
+        fullViewer.onclick = (e) => { if (e.target === fullViewer) closeImageViewer(); };
 
         document.getElementById('closeModalBtn').addEventListener('click', closeModal);
         document.getElementById('projectModal').addEventListener('click', (e) => { if (e.target === document.getElementById('projectModal')) closeModal(); });
